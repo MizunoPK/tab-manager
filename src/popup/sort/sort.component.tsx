@@ -2,22 +2,19 @@ import React, { useState } from 'react'
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { IconButton } from '@mui/material';
-import { SortOption } from '../../utils/SortOptions';
+import { SortOption } from '../../utils/enums/SortOptions';
 import SortButton from './SortButton.component';
-
-enum SORT_DIRECTION {
-    UP, DOWN
-}
+import { SortDirection } from '../../utils/enums/SortDirection';
 
 function Sort() {
-    const [sortDirection, setSortDirection] = useState(SORT_DIRECTION.UP)
+    const [sortDirection, setSortDirection] = useState(SortDirection.UP)
 
     // Change the direction of the sort
     const changeSortDir = () => {
-        if (sortDirection === SORT_DIRECTION.UP)
-            setSortDirection(SORT_DIRECTION.DOWN)
+        if (sortDirection === SortDirection.UP)
+            setSortDirection(SortDirection.DOWN)
         else
-            setSortDirection(SORT_DIRECTION.UP)
+            setSortDirection(SortDirection.UP)
     }
 
     // Sort button was clicked
@@ -29,10 +26,10 @@ function Sort() {
     <div className='flex flex-col justify-center items-center'>            
         <div className='w-fit relative'>
             <div className='absolute -left-[3em] mt-[2px]'>
-                <IconButton aria-label={`${sortDirection === SORT_DIRECTION.UP ? 'sort upward' : 'sort downward'}`}
+                <IconButton aria-label={`${sortDirection === SortDirection.UP ? 'sort upward' : 'sort downward'}`}
                     onClick={changeSortDir}
                     color='primary'>
-                    {sortDirection === SORT_DIRECTION.UP 
+                    {sortDirection === SortDirection.UP 
                         ? <ArrowUpwardIcon />
                         : <ArrowDownwardIcon />
                     }
@@ -46,7 +43,7 @@ function Sort() {
         <SortButton type={SortOption.NAME} callback={triggerSort} />
         <SortButton type={SortOption.URL} callback={triggerSort} />
         <SortButton type={SortOption.LAST_ACCESSED} callback={triggerSort} />
-        <SortButton type={SortOption.CREATION_DATE} callback={triggerSort} />
+        <SortButton type={SortOption.CREATION_TIME} callback={triggerSort} />
     </div>
   )
 }

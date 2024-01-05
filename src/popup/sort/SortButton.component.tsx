@@ -1,5 +1,5 @@
 import React from 'react'
-import { SortOption } from '../../utils/SortOptions'
+import { SortOption } from '../../utils/enums/SortOptions'
 import { Button } from '@mui/material'
 
 interface Props {

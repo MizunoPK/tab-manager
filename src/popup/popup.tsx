@@ -36,7 +36,7 @@ const App: React.FC<{}> = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <div className='w-96 h-96'>
+      <div className='w-96 h-[30em]'>
         {/* Tabs */}
         <Grid container justifyContent='center' alignItems='center' className='my-3 text-center'>
           <Grid item xs={4}>
